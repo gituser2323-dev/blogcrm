@@ -1,13 +1,29 @@
 module.exports = [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https://market-assets.strapi.io',
+            'https://res.cloudinary.com',  // allow Cloudinary images
+          ],
+        },
+      },
+    },
+  },
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://speedupinfotech.com', 'https://www.speedupinfotech.com','http://localhost:3000'], // your frontend URLs
+      origin: ['https://speedupinfotech.com', 'https://www.speedupinfotech.com', 'http://localhost:3000'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-      headers: ['Content-Type', 'Authorization', 'X-Requested-With'], // Explicitly list necessary headers
+      headers: ['Content-Type', 'Authorization', 'X-Requested-With'],
     },
   },
   'strapi::poweredBy',
