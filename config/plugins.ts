@@ -1,12 +1,6 @@
 // config/plugins.js
 
-module.exports = {
-  'users-permissions': {
-    config: {
-      jwtSecret: process.env.JWT_SECRET || 'WaOlDUPcQvfawU2d/FFK5w==',
-    },
-  },
-};
+
 
 module.exports = ({ env }) => ({
   upload: {
@@ -17,6 +11,12 @@ module.exports = ({ env }) => ({
         api_key: env('CLOUDINARY_KEY'),
         api_secret: env('CLOUDINARY_SECRET'),
       },
+    },
+  },
+
+  'users-permissions': {
+    config: {
+      jwtSecret: process.env.JWT_SECRET || 'WaOlDUPcQvfawU2d/FFK5w==',
     },
   },
 });
