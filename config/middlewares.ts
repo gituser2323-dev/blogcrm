@@ -12,7 +12,7 @@ module.exports = [
             'data:',
             'blob:',
             'https://market-assets.strapi.io',
-            'https://res.cloudinary.com',  // allow Cloudinary images
+            'https://res.cloudinary.com',  // <--- add this here to allow Cloudinary images
           ],
         },
       },
