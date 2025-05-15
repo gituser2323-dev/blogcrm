@@ -1,8 +1,7 @@
 // config/plugins.js
 
-
-
 module.exports = ({ env }) => ({
+  // Cloudinary upload config
   upload: {
     config: {
       provider: 'cloudinary',
@@ -14,9 +13,10 @@ module.exports = ({ env }) => ({
     },
   },
 
+  // Users-permissions plugin config
   'users-permissions': {
     config: {
-      jwtSecret: process.env.JWT_SECRET || 'WaOlDUPcQvfawU2d/FFK5w==',
+      jwtSecret: env('JWT_SECRET') || 'WaOlDUPcQvfawU2d/FFK5w==',
     },
   },
 });
